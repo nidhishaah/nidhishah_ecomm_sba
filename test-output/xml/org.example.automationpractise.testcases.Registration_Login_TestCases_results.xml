@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="registration-login"
+           tests="4"
+           failures="0"
+           errors="0"
+           skipped="0"
+           time="27.352">
+    <properties></properties>
+
+
+
+            <testcase
+                name="tc04_viewProducts"
+                time="5.464"
+                classname="org.example.automationpractise.testcases.Registration_Login_TestCases">
+            </testcase>
+            <testcase
+                name="tc01_seeSignInTab"
+                time="9.196"
+                classname="org.example.automationpractise.testcases.Registration_Login_TestCases">
+            </testcase>
+            <testcase
+                name="tc03_validLogin"
+                time="7.551"
+                classname="org.example.automationpractise.testcases.Registration_Login_TestCases">
+            </testcase>
+            <testcase
+                name="tc02_invalidCreateAccount"
+                time="5.141"
+                classname="org.example.automationpractise.testcases.Registration_Login_TestCases">
+            </testcase>
+</testsuite>

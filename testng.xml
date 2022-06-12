@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+        <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
+<suite name="suite">
+    <test name="registration-login" enabled="true">
+        <classes>
+            <class name="org.example.automationpractise.testcases.Registration_Login_TestCases"></class>
+        </classes>
+    </test>
+
+    <test name="search-feature" enabled="true">
+        <classes>
+            <class name="org.example.automationpractise.testcases.Search_Feature_TestCases"></class>
+        </classes>
+    </test>
+
+    <test name="product-details" enabled="true">
+        <classes>
+            <class name="org.example.automationpractise.testcases.Product_Details_TestCases"></class>
+        </classes>
+    </test>
+
+</suite>
