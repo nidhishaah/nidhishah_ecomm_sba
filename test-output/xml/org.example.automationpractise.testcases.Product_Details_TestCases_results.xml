@@ -4,29 +4,29 @@
            failures="0"
            errors="0"
            skipped="0"
-           time="5.086">
+           time="5.671">
     <properties></properties>
 
 
 
             <testcase
-                name="tc06_seeProductPage"
-                time="2.050"
+                name="tc08_changeQty"
+                time="0.941"
                 classname="org.example.automationpractise.testcases.Product_Details_TestCases">
             </testcase>
             <testcase
                 name="tc07_selectSizeandColor"
-                time="0.193"
+                time="0.570"
                 classname="org.example.automationpractise.testcases.Product_Details_TestCases">
             </testcase>
             <testcase
-                name="tc08_changeQty"
-                time="0.315"
+                name="tc06_seeProductPage"
+                time="1.341"
                 classname="org.example.automationpractise.testcases.Product_Details_TestCases">
             </testcase>
             <testcase
                 name="tc09_addTOCart"
-                time="2.528"
+                time="2.819"
                 classname="org.example.automationpractise.testcases.Product_Details_TestCases">
             </testcase>
 </testsuite>

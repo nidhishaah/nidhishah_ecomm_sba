@@ -4,14 +4,14 @@
            failures="0"
            errors="0"
            skipped="0"
-           time="5.999">
+           time="5.648">
     <properties></properties>
 
 
 
             <testcase
                 name="tc05_searchTest"
-                time="5.999"
+                time="5.648"
                 classname="org.example.automationpractise.testcases.Search_Feature_TestCases">
             </testcase>
 </testsuite>

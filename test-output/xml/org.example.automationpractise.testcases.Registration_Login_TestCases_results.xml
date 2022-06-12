@@ -4,29 +4,29 @@
            failures="0"
            errors="0"
            skipped="0"
-           time="27.352">
+           time="42.464">
     <properties></properties>
 
 
 
             <testcase
-                name="tc04_viewProducts"
-                time="5.464"
+                name="tc02_invalidCreateAccount"
+                time="4.155"
                 classname="org.example.automationpractise.testcases.Registration_Login_TestCases">
             </testcase>
             <testcase
                 name="tc01_seeSignInTab"
-                time="9.196"
+                time="14.966"
                 classname="org.example.automationpractise.testcases.Registration_Login_TestCases">
             </testcase>
             <testcase
                 name="tc03_validLogin"
-                time="7.551"
+                time="11.847"
                 classname="org.example.automationpractise.testcases.Registration_Login_TestCases">
             </testcase>
             <testcase
-                name="tc02_invalidCreateAccount"
-                time="5.141"
+                name="tc04_viewProducts"
+                time="11.496"
                 classname="org.example.automationpractise.testcases.Registration_Login_TestCases">
             </testcase>
 </testsuite>
