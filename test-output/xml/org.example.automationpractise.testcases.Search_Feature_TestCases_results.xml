@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="search-feature"
+<testsuite name="registration-login"
            tests="1"
            failures="0"
            errors="0"
            skipped="0"
-           time="5.648">
+           time="0.958">
     <properties></properties>
 
 
 
             <testcase
                 name="tc05_searchTest"
-                time="5.648"
+                time="0.958"
                 classname="org.example.automationpractise.testcases.Search_Feature_TestCases">
             </testcase>
 </testsuite>

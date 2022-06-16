@@ -1,10 +1,7 @@
 package org.example.automationpractise.testcases;
 
-import com.aventstack.extentreports.ExtentReports;
-import com.aventstack.extentreports.ExtentTest;
-import com.aventstack.extentreports.reporter.ExtentHtmlReporter;
-import com.aventstack.extentreports.reporter.configuration.ChartLocation;
-import com.aventstack.extentreports.reporter.configuration.Theme;
+
+import com.google.common.io.Files;
 import org.apache.commons.io.FileUtils;
 import org.example.automationpractise.library.SelectBrowser;
 import org.example.automationpractise.pages.*;
@@ -13,59 +10,30 @@ import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
-import org.testng.annotations.AfterTest;
-import org.testng.annotations.BeforeSuite;
-import org.testng.annotations.BeforeTest;
-import org.testng.annotations.Test;
+import org.testng.ITestResult;
+import org.testng.annotations.*;
 
 import java.io.File;
 import java.io.IOException;
 import java.time.Duration;
 
-public class Registration_Login_TestCases {
+public class Registration_Login_TestCases extends BaseTest{
     WebDriver driver;
     HomePage homePage;
     BlouseProductPage blouseProductPage;
     SignInPage signInPage;
     AccountPage accountPage;
 
-    private static ExtentHtmlReporter htmlReporter;
-    private static ExtentReports extent;
-    private static ExtentTest test;
-
-
-    @BeforeSuite
-    public void setUpReport(){
-
-        //create the HtmlReporter in that path by the name of  MyOwnReport.html
-        //htmlReporter = new ExtentHtmlReporter(System.getProperty("user.dir") +"/test-output/MyOwnReport.html");
-        htmlReporter =
-                new ExtentHtmlReporter("C:\\Users\\nidhi\\Documents\\ActivateIT\\Week 14-Selenium\\nidhishah_ecomm_sba\\test-output\\registration_loginReport.html");
-        extent = new ExtentReports();
-
-        extent.attachReporter(htmlReporter);
-        extent.setSystemInfo("Host Name", "DEKTOP-34GJ352");
-        extent.setSystemInfo("Environment", "QA");
-        extent.setSystemInfo("User Name", "Nidhi Shah");
-        htmlReporter.config().setChartVisibilityOnOpen(true);
-        htmlReporter.config().setDocumentTitle("AutomationTesting Demo Report");
-        htmlReporter.config().setReportName("My Search Report");
-        htmlReporter.config().setTestViewChartLocation(ChartLocation.TOP);
-        htmlReporter.config().setTheme(Theme.DARK);
-
-    }
-
-    @BeforeTest
-    public void launchBrowser(){
+    @BeforeMethod
+    public void SetUp(){
         driver = SelectBrowser.StartBrowser("Chrome");
         driver.get("http://automationpractice.com/index.php");
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-
     }
 
 
-    @Test(priority = 2)
+    @Test(priority = 1)
     public void tc01_seeSignInTab(){
         test = extent.createTest("tc01_seeSignInTab", "PASSED test case");
         homePage = new HomePage(driver);
@@ -77,7 +45,7 @@ public class Registration_Login_TestCases {
 
     }
 
-    @Test(priority = 2)
+    @Test(priority = 1)
     public void tc02_invalidCreateAccount() {
         test = extent.createTest("tc02_invalidCreateAccount", "PASSED test case");
         homePage = new HomePage(driver);
@@ -88,7 +56,7 @@ public class Registration_Login_TestCases {
 
     }
 
-    @Test(priority = 2)
+    @Test(priority = 1)
     public void tc03_validLogin() throws IOException {
         test = extent.createTest("tc03_validLogin", "PASSED test case");
         homePage = new HomePage(driver);
@@ -106,7 +74,7 @@ public class Registration_Login_TestCases {
         driver.findElement(By.linkText("Sign out")).click();
     }
 
-    @Test(priority=2)
+    @Test(priority=1)
     public void tc04_viewProducts() throws InterruptedException {
         test = extent.createTest("tc04_viewProducts", "PASSED test case");
 
@@ -123,12 +91,20 @@ public class Registration_Login_TestCases {
     }
 
 
+    @AfterMethod
+    public void closeBrowser(ITestResult result) throws IOException{
+        if(ITestResult.SUCCESS == result.getStatus()){
+            TakesScreenshot camera = (TakesScreenshot)driver;
+            File screenshot = ((TakesScreenshot) camera).getScreenshotAs(OutputType.FILE);
+            Files.move(screenshot,new File("C:\\Users\\nidhi\\Documents\\ActivateIT\\Week 14-Selenium\\nidhishah_ecomm_sba\\test-output\\screenshots\\"+result.getName()+".png"));
+            System.out.println(screenshot.getAbsolutePath());
+            test.addScreenCaptureFromPath(result.getName()+".png");
+        }
 
-
-
-    @AfterTest
-    public void tearDown(){
-        extent.flush();
         driver.quit();
     }
+
+
+
+
 }

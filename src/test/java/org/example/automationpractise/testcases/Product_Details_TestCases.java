@@ -6,6 +6,7 @@ import com.aventstack.extentreports.Status;
 import com.aventstack.extentreports.reporter.ExtentHtmlReporter;
 import com.aventstack.extentreports.reporter.configuration.ChartLocation;
 import com.aventstack.extentreports.reporter.configuration.Theme;
+import com.google.common.io.Files;
 import org.apache.commons.io.FileUtils;
 import org.example.automationpractise.library.SelectBrowser;
 import org.example.automationpractise.pages.HomePage;
@@ -15,55 +16,28 @@ import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
+import org.testng.ITestResult;
 import org.testng.annotations.*;
 
 import java.io.File;
 import java.io.IOException;
 import java.time.Duration;
 
-public class Product_Details_TestCases {
+public class Product_Details_TestCases extends BaseTest {
 
     WebDriver driver;
     HomePage homePage;
     PrintedChiffonDressPage printedChiffonDressPage;
 
-    private static ExtentHtmlReporter htmlReporter;
-    private static ExtentReports extent;
-    private static ExtentTest test;
-
-
-    @BeforeSuite
-    public void setUpReport(){
-
-        //create the HtmlReporter in that path by the name of  MyOwnReport.html
-        //htmlReporter = new ExtentHtmlReporter(System.getProperty("user.dir") +"/test-output/MyOwnReport.html");
-        htmlReporter =
-                new ExtentHtmlReporter("C:\\Users\\nidhi\\Documents\\ActivateIT\\Week 14-Selenium\\nidhishah_ecomm_sba\\test-output\\product_detailsReport.html");
-        extent = new ExtentReports();
-
-        extent.attachReporter(htmlReporter);
-        extent.setSystemInfo("Host Name", "DEKTOP-34GJ352");
-        extent.setSystemInfo("Environment", "QA");
-        extent.setSystemInfo("User Name", "Nidhi Shah");
-        htmlReporter.config().setChartVisibilityOnOpen(true);
-        htmlReporter.config().setDocumentTitle("AutomationTesting Demo Report");
-        htmlReporter.config().setReportName("My Search Report");
-        htmlReporter.config().setTestViewChartLocation(ChartLocation.TOP);
-        htmlReporter.config().setTheme(Theme.DARK);
-
-    }
-
-
     @BeforeClass
     public void SetUp(){
-        driver = SelectBrowser.StartBrowser("EdgeExplore");
+        driver = SelectBrowser.StartBrowser("Firefox");
         driver.get("http://automationpractice.com/index.php");
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
     }
 
-
-    @Test(priority = 1)
+    @Test(priority = 3)
     public void tc06_seeProductPage(){
         test = extent.createTest("tc06_seeProductPage","PASSED this test case");
         homePage = new HomePage(driver);
@@ -72,7 +46,7 @@ public class Product_Details_TestCases {
     }
 
 
-    @Test(priority = 1)
+    @Test(priority = 3)
     public void tc07_selectSizeandColor(){
         test = extent.createTest("tc07_selectSizeandColor","PASSED this test case");
         printedChiffonDressPage.selectSize("L");
@@ -81,7 +55,7 @@ public class Product_Details_TestCases {
     }
 
 
-    @Test(priority = 1)
+    @Test(priority = 3)
     public void tc08_changeQty() throws InterruptedException, IOException {
 
         test = extent.createTest("tc08_changeQty","PASSED this test case");
@@ -94,7 +68,7 @@ public class Product_Details_TestCases {
     }
 
 
-    @Test(priority = 1)
+    @Test(priority = 3)
     public void tc09_addTOCart() throws IOException {
         test = extent.createTest("tc09_addTOCart","PASSED this test case");
         printedChiffonDressPage.addToCart();
@@ -107,11 +81,19 @@ public class Product_Details_TestCases {
         FileUtils.copyFile(f, new File("C:\\Users\\nidhi\\Documents\\ActivateIT\\Week 14-Selenium\\nidhishah_ecomm_sba\\test-output\\product1.png"));
         test.addScreenCaptureFromPath("product1.png");
     }
-
     @AfterClass
-    public void tearDown(){
-        extent.flush();
+    public void closeBrowser(){
         driver.quit();
     }
 
+    @AfterMethod
+    public void recordSuccess(ITestResult result) throws IOException {
+        if(ITestResult.SUCCESS == result.getStatus()){
+            TakesScreenshot camera = (TakesScreenshot)driver;
+            File screenshot = ((TakesScreenshot) camera).getScreenshotAs(OutputType.FILE);
+            Files.move(screenshot,new File("C:\\Users\\nidhi\\Documents\\ActivateIT\\Week 14-Selenium\\nidhishah_ecomm_sba\\test-output\\screenshots\\"+result.getName()+".png"));
+            System.out.println(screenshot.getAbsolutePath());
+            test.addScreenCaptureFromPath(result.getName()+".png");
+        }
+    }
 }

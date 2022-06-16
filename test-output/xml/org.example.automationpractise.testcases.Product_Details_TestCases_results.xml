@@ -1,32 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="product-details"
+<testsuite name="registration-login"
            tests="4"
            failures="0"
            errors="0"
            skipped="0"
-           time="5.671">
+           time="4.569">
     <properties></properties>
 
 
 
             <testcase
-                name="tc08_changeQty"
-                time="0.941"
+                name="tc09_addTOCart"
+                time="2.131"
                 classname="org.example.automationpractise.testcases.Product_Details_TestCases">
             </testcase>
             <testcase
                 name="tc07_selectSizeandColor"
-                time="0.570"
+                time="0.166"
                 classname="org.example.automationpractise.testcases.Product_Details_TestCases">
             </testcase>
             <testcase
                 name="tc06_seeProductPage"
-                time="1.341"
+                time="1.733"
                 classname="org.example.automationpractise.testcases.Product_Details_TestCases">
             </testcase>
             <testcase
-                name="tc09_addTOCart"
-                time="2.819"
+                name="tc08_changeQty"
+                time="0.539"
                 classname="org.example.automationpractise.testcases.Product_Details_TestCases">
             </testcase>
 </testsuite>
