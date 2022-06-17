@@ -1,23 +1,14 @@
 package org.example.automationpractise.testcases;
 
-
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.reporter.ExtentHtmlReporter;
 import com.aventstack.extentreports.reporter.configuration.ChartLocation;
 import com.aventstack.extentreports.reporter.configuration.Theme;
-import com.google.common.io.Files;
-import io.netty.handler.codec.http.DefaultHttpResponse;
-import org.example.automationpractise.library.SelectBrowser;
-import org.openqa.selenium.OutputType;
-import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.testng.ITestResult;
 import org.testng.annotations.*;
 
-import java.io.File;
-import java.io.IOException;
-import java.time.Duration;
 
 public class BaseTest {
 
@@ -25,7 +16,7 @@ public class BaseTest {
     private static ExtentHtmlReporter htmlReporter;
     protected static ExtentReports extent;
     protected static ExtentTest test;
-    private ITestResult result;
+//    private ITestResult result;
 
 
     @BeforeSuite
