@@ -31,7 +31,7 @@ public class Search_Feature_TestCases extends BaseTest{
 
     @BeforeClass
     public void SetUp(){
-        driver = SelectBrowser.StartBrowser("EdgeExplore");
+        driver = SelectBrowser.StartBrowser("Chrome");
         driver.get("http://automationpractice.com/index.php");
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
