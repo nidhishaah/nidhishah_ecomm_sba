@@ -35,8 +35,8 @@ public class SelectBrowser {
             // Set the path for IEdriver
             System.setProperty("webdriver.edge.driver", fileUrl+"\\src\\main\\resources\\Drivers\\msedgedriver2.exe");
             // Instantiate a EdgeDriverclass.
-            EdgeOptions options = new EdgeOptions();
-            driver = new EdgeDriver(options);
+          //  EdgeOptions options = new EdgeOptions();
+            driver = new EdgeDriver();
         }
         driver.manage().window().maximize();
         return driver;
