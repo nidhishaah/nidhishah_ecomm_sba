@@ -33,8 +33,8 @@ public class BaseTest {
         extent.setSystemInfo("Environment", "QA");
         extent.setSystemInfo("User Name", "Nidhi Shah");
         htmlReporter.config().setChartVisibilityOnOpen(true);
-        htmlReporter.config().setDocumentTitle("Capstone Report");
-        htmlReporter.config().setReportName("Capstone Report");
+        htmlReporter.config().setDocumentTitle("Ecomm SBA Report");
+        htmlReporter.config().setReportName("SBA Report");
         htmlReporter.config().setTestViewChartLocation(ChartLocation.TOP);
         htmlReporter.config().setTheme(Theme.DARK);
 
